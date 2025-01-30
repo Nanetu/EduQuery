@@ -27,9 +27,9 @@ EduQuery aims to:
 3. Demonstrate to investors the feasibility and scalability of EduQuery as a valuable educational tool.
 
 ## Tech Stack
-- **Frontend**: [Next.js](https://nextjs.org/), [Shadcn](https://shadcn.dev/)
-- **Backend**: [Flask](https://flask.palletsprojects.com/), [Flask-RESTx](https://flask-restx.readthedocs.io/)
-- **Database**: SQLite3
+- **Frontend**: [React.js](https://react.dev/), [Shadcn](https://shadcn.dev/)
+- **Backend**: [Django](https://www.djangoproject.com/), [Django REST Framework (DRF)](https://www.django-rest-framework.org/)
+- **Database**: SQLite3 (for development), PostgreSQL (recommended for production)
 - **AI API**: Fine-tuned GPT model for generating responses and concept explanations
 - **Cloud Storage**: Google Cloud Storage or Google Drive (for temporary PDF storage during demo)
 
@@ -43,34 +43,40 @@ To get started with EduQuery locally:
    ```
 
 2. **Install dependencies**:
-   - Backend (Flask):
+   - Backend (Django):
      ```bash
      cd backend
+     python -m venv venv
+     source venv/bin/activate  # For Windows: venv\Scripts\activate
      pip install -r requirements.txt
      ```
-   - Frontend (Next.js):
+   - Frontend (React.js):
      ```bash
      cd frontend
      npm install
      ```
 
 3. **Set up the Database**:
-   - Create the necessary tables for students, courses, files, queries, and concepts in SQLite3.
-   - Run database migrations if applicable.
-
-4. **Configure Environment Variables**:
-   - Add credentials for AI API access, Google Cloud Storage, and any other required configurations in `.env` files for the backend and frontend.
-
-5. **Run the Application**:
-   - Start the backend server:
+   - Apply migrations to set up the database schema:
      ```bash
      cd backend
-     flask run
+     python manage.py migrate
      ```
-   - Start the frontend server:
+
+4. **Configure Environment Variables**:
+   - Backend: Add API keys and database settings to a `.env` file in the `backend` folder.
+   - Frontend: Add environment variables (e.g., API endpoints) to a `.env` file in the `frontend` folder.
+
+5. **Run the Application**:
+   - Start the Django backend server:
+     ```bash
+     cd backend
+     python manage.py runserver
+     ```
+   - Start the React frontend server:
      ```bash
      cd frontend
-     npm run dev
+     npm start
      ```
 
 6. **Access the Application**:
@@ -86,15 +92,19 @@ EduQuery is designed for students to:
 ## Project Structure
 ```
 EduQuery/
-├── backend/             # Flask backend for handling API requests
-│   ├── app/
-│   ├── models/          # Database models (students, courses, files, etc.)
-│   ├── routes/          # Flask routes (e.g., concept generation, file upload)
-│   └── main.py          # Entry point for the backend server
-├── frontend/            # Next.js frontend for user interface
-│   ├── pages/
-│   ├── components/
-│   └── utils/
+├── backend/             # Django backend for handling API requests
+│   ├── core/            # Core application settings
+│   ├── apps/            # Custom Django apps (students, courses, files, etc.)
+│   ├── static/          # Static files
+│   ├── templates/       # HTML templates (if any)
+│   └── manage.py        # Entry point for the Django backend
+├── frontend/            # React.js frontend for user interface
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/    # API service integration
+│   │   └── utils/
+│   └── package.json     # Frontend dependencies
 ├── .env                 # Environment variables (not committed)
 └── README.md            # Project README
 ```
