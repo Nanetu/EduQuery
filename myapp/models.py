@@ -44,6 +44,9 @@ class Query(models.Model):
     query = models.TextField()
     answer = models.TextField()
 
+    def __str__(self):
+        return self.query +" : "+self.answer
+
 class UserQuery(models.Model):
     sid = models.ForeignKey(User, on_delete=models.CASCADE)
     qid = models.ForeignKey(Query, on_delete=models.CASCADE)

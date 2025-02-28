@@ -3,32 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduQuery/home</title>
+    <title>Eduquery</title>
 </head>
 <body>
-
-    {% for message in messages %}
-    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <strong>Message: </strong>{{message}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden= "true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
-
-    <h1>Welcome to EduQuery</h1>
-    {% if user.is_authenticated %}
-    <h3>Hello {{fname}}</h3>
-    <h4>You are successfully logged in</h4>
-    <button type="submit"><a href="/logout">Logout</a></button>
-    <br>
-
-    {% else %}
-    <button type="submit"><a href="/signup">Sign up</a></button>
-    <br>
-    <button type="submit"><a href="/login">Login</a></button>
-    <br>
-    {% endif %}
-
+    <main>
+        <h1>Welcome to Eduquery</h1>
+        <h4>Your AI-Powered Study Assistant for University Success</h4>
+        <p>Eduquery helps students with study support, exam preparation and personalized learning through AI</p>
+        
+        <div class="features">
+            <p>Feature and Benefits
+                <ul>
+                    <li>AI powered assistance</li>
+                    <li>Quiz generation</li>
+                    <li>Personalized learning suggestions</li>
+                    <li>Institution-specific knowledge</li>
+                    <li>Continous Learning</li>
+                </ul>
+            </p>
+        </div>
+        <a href="signup" target="_blank" class="btn">Get Started</a>
+    </main>
+    <footer>
+        <div class="About">
+            <h3>EduQuery</h3>
+            <p>Your AI powered study assistant helping students with personalized learning and academic success</p>
+        </div>
+        <div class="Links">
+            <h3>Quick links</h3>
+            <ul>
+                <li><a href="signup" target="_blank">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="Contact">
+            <h3>Contact Us</h3>
+            <p>Email: support@eduquery.com</p>
+            <p>Phone: +260 123 456 789</p>
+        </div>
+        <div class="Bottom">
+            <p>&copy 2025 EduQuery. All rights reserved. | Powered by UbuntuNet Alliance</p>
+        </div>
+    </footer>
 </body>
-</html>
+</html> 
